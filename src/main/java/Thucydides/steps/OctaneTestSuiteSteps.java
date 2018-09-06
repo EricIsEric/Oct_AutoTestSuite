@@ -53,24 +53,24 @@ public class OctaneTestSuiteSteps {
 
 	@Step
 	public void LoginName_Steps() throws Exception {
-		octaneTestSuitePage.Pub_LoginName("中10文ボｱБЖÄê¢Àü¢ÁÉ»¢À€¢@nga");
+		octaneTestSuitePage.Pub_LoginName("中文ボｱБЖÄê¢Àü¢ÁÉ»¢À€¢@nga");
 		
 	}
 
 	@Step
 	public void InputFirstName() throws Exception {
-		octaneTestSuitePage.Pub_FirstName("中10文ボｱБЖÄê¢Àü¢ÁÉ»¢À€¢ 1");
+		octaneTestSuitePage.Pub_FirstName("中文ボｱБЖÄê¢Àü¢ÁÉ»¢À€¢ 1");
 	}
 
 	@Step
 	public void InputLastName() throws Exception {
-		octaneTestSuitePage.Pub_LastName("中10文ボｱБЖÄê¢Àü¢ÁÉ»¢À€¢ 2");
+		octaneTestSuitePage.Pub_LastName("中文ボｱБЖÄê¢Àü¢ÁÉ»¢À€¢ 2");
 		
 	}
 
 	@Step
 	public void InputeEmail() throws Exception {
-		octaneTestSuitePage.Pub_Email("中10文ボｱБЖÄê¢Àü¢ÁÉ»¢À€¢@nga");
+		octaneTestSuitePage.Pub_Email("中文ボｱБЖÄê¢Àü¢ÁÉ»¢À€¢@nga");
 	}
 
 	@Step
@@ -80,7 +80,6 @@ public class OctaneTestSuiteSteps {
 
 	@Step
 	public void SelectLanguage() throws Exception {
-//		octaneTestSuitePage.SelectLanguage();
 		octaneTestSuitePage.Pub_SelLanguage("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/field-editor-value-viewer/div/reference-field-editor-preeditor/div/div/field-editor-preeditor/div/div/div[1]/div/div", "/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/div/div/div/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[1]/div/div[1]/div/span");
 	}
 
@@ -133,22 +132,22 @@ public class OctaneTestSuiteSteps {
 	
 	@Step
 	public void LoginNameAc2() throws Exception {
-		octaneTestSuitePage.Pub_LoginName("chsssssssssssssssss");
+		octaneTestSuitePage.Pub_LoginName("chs@nga");
 	}
 
 	@Step
 	public void FirNameAc2() throws Exception {
-		octaneTestSuitePage.Pub_FirstName("Chsaaaaaaaaaaaaaaaaa");
+		octaneTestSuitePage.Pub_FirstName("Chs1");
 	}
 
 	@Step
 	public void LasNameAc2() throws Exception {
-		octaneTestSuitePage.Pub_LastName("Chsbbbbbbbbbbbbbbbbb");
+		octaneTestSuitePage.Pub_LastName("Chs2");
 	}
 
 	@Step
 	public void EmailAc2() throws Exception {
-		octaneTestSuitePage.Pub_Email("chsssssssssssssssss@");
+		octaneTestSuitePage.Pub_Email("chs@nga");
 	}
 
 	@Step
@@ -160,22 +159,22 @@ public class OctaneTestSuiteSteps {
 
 	@Step
 	public void LoginNameAc3() throws Exception {
-		octaneTestSuitePage.Pub_LoginName("jpnnnnnnnnn");
+		octaneTestSuitePage.Pub_LoginName("jpn@nga");
 	}
 
 	@Step
 	public void FirstNameAc3() throws Exception {
-		octaneTestSuitePage.Pub_FirstName("Jpnaaaaaaaaa");
+		octaneTestSuitePage.Pub_FirstName("Jpn1");
 	}
 
 	@Step
 	public void LastNameAc3() throws Exception {
-		octaneTestSuitePage.Pub_LastName("Jpnbbbbbbbbb");
+		octaneTestSuitePage.Pub_LastName("Jpn2");
 	}
 
 	@Step
 	public void EmailAc3() throws Exception {
-		octaneTestSuitePage.Pub_Email("jpnnnnnnnnn@");
+		octaneTestSuitePage.Pub_Email("jpn@nga");
 	}
 
 	@Step
@@ -193,27 +192,26 @@ public class OctaneTestSuiteSteps {
 	
 	@Step
 	public void LoginNameAc4() throws Exception {
-		octaneTestSuitePage.Pub_LoginName("3fra@nga");
+		octaneTestSuitePage.Pub_LoginName("fra@nga");
 	}
 
 	@Step
 	public void FirstNameAc4() throws Exception {
-		octaneTestSuitePage.Pub_FirstName("3Fra1");
+		octaneTestSuitePage.Pub_FirstName("Fra1");
 	}
 
 	@Step
 	public void LastNameAc4() throws Exception {
-		octaneTestSuitePage.Pub_LastName("3Fra2");
+		octaneTestSuitePage.Pub_LastName("Fra2");
 	}
 
 	@Step
 	public void EmailAC4() throws Exception {
-		octaneTestSuitePage.Pub_Email("3fra@nga");
+		octaneTestSuitePage.Pub_Email("fra@nga");
 	}
 
 	@Step
 	public void LangForAc4() throws Exception {
-//		octaneTestSuitePage.LangForAc4();
 		octaneTestSuitePage.Pub_SelLanguage("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/field-editor-value-viewer/div/reference-field-editor-preeditor/div/div/field-editor-preeditor/div/div/div[1]/div/div", "/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/div/div/div/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[3]/div/div[1]/div/span");
 	}
 
@@ -221,27 +219,26 @@ public class OctaneTestSuiteSteps {
 	
 	@Step
 	public void LoginNameAc5() throws Exception {
-		octaneTestSuitePage.Pub_LoginName("3deu@nga");
+		octaneTestSuitePage.Pub_LoginName("deu@nga");
 	}
 
 	@Step
 	public void FirstNameAc5() throws Exception{
-		octaneTestSuitePage.Pub_FirstName("3Deu1");
+		octaneTestSuitePage.Pub_FirstName("Deu1");
 	}
 
 	@Step
 	public void LastNameAc5() throws Exception {
-		octaneTestSuitePage.Pub_LastName("3Deu2");
+		octaneTestSuitePage.Pub_LastName("Deu2");
 	}
 
 	@Step
 	public void EmailAc5() throws Exception {
-		octaneTestSuitePage.Pub_Email("3deu@nga");
+		octaneTestSuitePage.Pub_Email("deu@nga");
 	}
 
 	@Step
 	public void LangForAc5() throws Exception {
-//		octaneTestSuitePage.LangForAc5();
 		octaneTestSuitePage.Pub_SelLanguage("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/field-editor-value-viewer/div/reference-field-editor-preeditor/div/div/field-editor-preeditor/div/div/div[1]/div/div", "/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/div/div/div/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[4]/div/div[1]/div/span");
 	}
 
@@ -250,27 +247,26 @@ public class OctaneTestSuiteSteps {
 	
 	@Step
 	public void LoginNameAc6() throws Exception {
-		octaneTestSuitePage.Pub_LoginName("3rus@nga");
+		octaneTestSuitePage.Pub_LoginName("rus@nga");
 	}
 	
 	@Step
 	public void FirstNameAc6() throws Exception {
-		octaneTestSuitePage.Pub_FirstName("3Rus1");
+		octaneTestSuitePage.Pub_FirstName("Rus1");
 	}
 
 	@Step
 	public void LastNameAc6() throws Exception {
-		octaneTestSuitePage.Pub_LastName("3Rus2");
+		octaneTestSuitePage.Pub_LastName("Rus2");
 	}
 
 	@Step
 	public void EmailAc6() throws Exception {
-		octaneTestSuitePage.Pub_Email("3rus@nga");
+		octaneTestSuitePage.Pub_Email("rus@nga");
 	}
 
 	@Step
 	public void LangForAc6() throws Exception {
-//		octaneTestSuitePage.LangForAc6();
 		octaneTestSuitePage.Pub_SelLanguage("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/field-editor-value-viewer/div/reference-field-editor-preeditor/div/div/field-editor-preeditor/div/div/div[1]/div/div", "/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/div/div/div/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[6]/div/div[1]/div/span");
 	}
 	
@@ -279,27 +275,26 @@ public class OctaneTestSuiteSteps {
 
 	@Step
 	public void LoginNameAc7() throws Exception  {
-		octaneTestSuitePage.Pub_LoginName("3esp@nga");
+		octaneTestSuitePage.Pub_LoginName("esp@nga");
 	}
 
 	@Step
 	public void FirstNameAc7() throws Exception {
-		octaneTestSuitePage.Pub_FirstName("3Esp1");
+		octaneTestSuitePage.Pub_FirstName("Esp1");
 	}
 
 	@Step
 	public void LastNameAc7() throws Exception {
-		octaneTestSuitePage.Pub_LastName("3Esp2");
+		octaneTestSuitePage.Pub_LastName("Esp2");
 	}
 
 	@Step
 	public void EmailAc7() throws Exception {
-		octaneTestSuitePage.Pub_Email("3esp@nga");
+		octaneTestSuitePage.Pub_Email("esp@nga");
 	}
 
 	@Step
 	public void LangForAc7() throws Exception {
-//		octaneTestSuitePage.LangForAc7();
 		octaneTestSuitePage.Pub_SelLanguage("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/field-editor-value-viewer/div/reference-field-editor-preeditor/div/div/field-editor-preeditor/div/div/div[1]/div/div", "/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/div/div/div/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[7]/div/div[1]/div/span");
 	}
 

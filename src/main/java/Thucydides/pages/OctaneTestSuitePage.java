@@ -510,10 +510,11 @@ public class OctaneTestSuitePage extends PageObject {
 		}
 		
 		
-		//以下代码需要运行验证,以当前账户总数减去添加之前的账户总数是否等于7来判断7个账户是否已经添加成功
+		//以当前账户总数减去添加之前的账户总数是否等于7来简略判断7个账户是否已经添加成功
 		getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
 		
 		try {
+			Thread.sleep(10000);
 			WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
 			System.out.println(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
 			TotalUserAfter = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
