@@ -17,8 +17,8 @@ public class OctaneTestSuitePage extends PageObject {
 	}
 
 	public void accessOctaneURL() throws Exception {
-//		browserObjectAndCommonMethodPage.openURL("http://myd-vm00464.hpeswlab.net:20942/ui/?p=1001/1002#/");
-		browserObjectAndCommonMethodPage.openURL(System.getProperty("JenkinsURL"));
+		browserObjectAndCommonMethodPage.openURL("http://myd-vm00464.hpeswlab.net:20942/ui/?p=1001/1002#/");
+//		browserObjectAndCommonMethodPage.openURL(System.getProperty("JenkinsURL"));
 	}
 
 	public void EnterLoginInfo(String username, String password) {
@@ -60,15 +60,22 @@ public class OctaneTestSuitePage extends PageObject {
 	
 	int TotalUserBefore = 0;
 	public void ClickDefaultIsolated_Page() throws Exception {
-		Thread.sleep(10000);
-		getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-		WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
-		System.out.println(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
-		TotalUserBefore = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+		Thread.sleep(20000);
+		
 		
 		getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
 		WebElement DefaultIso = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[1]/div[2]/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[1]/div/div[1]/div/span"));
 		DefaultIso.click();
+		Thread.sleep(3000);
+		DefaultIso.click();
+		
+		
+		getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+		WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+		Thread.sleep(10000);
+		System.out.println(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+		TotalUserBefore = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+		System.out.println("TotalUserBefore is: " + TotalUserBefore );
 	}
 
 	public void ClickAddUser_Page() throws Exception {
@@ -219,46 +226,527 @@ public class OctaneTestSuitePage extends PageObject {
 		AddBtn.click();
 		Thread.sleep(20000);
 	}
-
-	public void ShowResult1() throws Exception {
-		WebElement DupMsg = find(org.openqa.selenium.By.xpath("/html/body/div[7]/div/div[2]/div/div[2]"));
-		if(DupMsg==null) {
-			System.out.print("┏"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"┓");
-			System.out.println();
-			System.out.print("┃"+"  AccountAdded: "+"中一"+"     ┃");
-			System.out.println();
-			System.out.print("┗"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"┛");
-			System.out.println();
-		}else {
-			System.out.print("╒"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"╕");
-			System.out.println();
-			System.out.print("┃"+"   DataDuplicated"+"   ┃");
-			System.out.println();
-			System.out.print("╘"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"╛");
-			System.out.println();
-		}
-		
-	}
 	
-	
-	
-	public void PrevStatus() throws Exception {
+	int TotalUserAc1=0;
+	public void RefreshAc1() throws Exception {
 		getDriver().navigate().refresh();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		
-		//对正常添加账户的情况下尝试刷新页面的时候没有alert弹窗的情形的处理
 		try {
 			getDriver().switchTo().alert().accept();
 			
 			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-			WebElement AddUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/div[1]/div[1]/div[1]/ng-switch/div/button/div/span"));
-			AddUser.click();
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				TotalUserAc1 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc1 is: " + TotalUserAc1);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				TotalUserAc1 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc1 is: " + TotalUserAc1);
+			}
+			
 		} catch (Exception NoAlertPresentException) {
 			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-			WebElement AddUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/div[1]/div[1]/div[1]/ng-switch/div/button/div/span"));
-			AddUser.click();
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				TotalUserAc1 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc1 is: " + TotalUserAc1);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				TotalUserAc1 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc1 is: " + TotalUserAc1);
+			}
+			
 		}
+	}
+	
+	public void DisplayAC1Result() throws Exception {
+		if(TotalUserAc1-TotalUserBefore==1) {
+			System.out.print("┏"+"━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println();
+			System.out.print("┃"+" AccountAdded: "+"CHS1"+"  ┃");
+			System.out.println();
+			System.out.print("┗"+"━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc1-TotalUserBefore==0) {
+			System.out.print("╒"+"━━━━━━━━━━━━━━━━━━━━━━"+"╕");
+			System.out.println();
+			System.out.print("┃"+" DataDuplicated: CHS1"+" ┃");
+			System.out.println();
+			System.out.print("╘"+"━━━━━━━━━━━━━━━━━━━━━━"+"╛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc1-TotalUserBefore>1) {
+			System.out.println("┏"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println("┃"+"Maybe someone else had added account while the script is being executing,"+"  ┃");
+			System.out.println("┃"+"need to confirm the accounts result on Octane web site."+"                    ┃");
+			System.out.println("┗"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}
+	}
+	
+	
+	int TotalUserAc2=0;
+	public void RefreshAc2() throws Exception {
+		getDriver().navigate().refresh();
+		Thread.sleep(10000);
 		
+		try {
+			getDriver().switchTo().alert().accept();
+			
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc1 is: " + TotalUserAc1);
+				TotalUserAc2 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc2 is: " + TotalUserAc2);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc1 is: " + TotalUserAc1);
+				TotalUserAc2 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc2 is: " + TotalUserAc2);
+			}
+			
+		} catch (Exception NoAlertPresentException) {
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc1 is: " + TotalUserAc1);
+				TotalUserAc2 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc2 is: " + TotalUserAc2);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc1 is: " + TotalUserAc1);
+				TotalUserAc2 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc2 is: " + TotalUserAc2);
+			}
+			
+		}
+	}
+	
+	
+	public void DisplayAC2Result() throws Exception {
+		if(TotalUserAc2-TotalUserAc1==1) {
+			System.out.print("┏"+"━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println();
+			System.out.print("┃"+" AccountAdded: "+"CHS2"+"  ┃");
+			System.out.println();
+			System.out.print("┗"+"━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc2-TotalUserAc1==0) {
+			System.out.print("╒"+"━━━━━━━━━━━━━━━━━━━━━━"+"╕");
+			System.out.println();
+			System.out.print("┃"+" DataDuplicated: CHS2"+" ┃");
+			System.out.println();
+			System.out.print("╘"+"━━━━━━━━━━━━━━━━━━━━━━"+"╛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc2-TotalUserAc1>1) {
+			System.out.println("┏"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println("┃"+"Maybe someone else had added account while the script is being executing,"+"  ┃");
+			System.out.println("┃"+"need to confirm the accounts result on Octane web site."+"                    ┃");
+			System.out.println("┗"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}
+	}
+	
+	
+	int TotalUserAc3=0;
+	public void RefreshAc3() throws Exception {
+		getDriver().navigate().refresh();
+		Thread.sleep(10000);
+		
+		try {
+			getDriver().switchTo().alert().accept();
+			
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				TotalUserAc3 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc2 is: " + TotalUserAc2);
+				System.out.println("TotalUserAc3 is: " + TotalUserAc3);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc2 is: " + TotalUserAc2);
+				TotalUserAc3 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc3 is: " + TotalUserAc3);
+			}
+			
+		} catch (Exception NoAlertPresentException) {
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				TotalUserAc3 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc2 is: " + TotalUserAc2);
+				System.out.println("TotalUserAc3 is: " + TotalUserAc3);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc2 is: " + TotalUserAc2);
+				TotalUserAc3 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc3 is: " + TotalUserAc3);
+			}
+			
+		}
+	}
+	
+	public void DisplayAC3Result() throws Exception {
+		if(TotalUserAc3-TotalUserAc2==1) {
+			System.out.print("┏"+"━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println();
+			System.out.print("┃"+"  AccountAdded: "+"JPN"+"  ┃");
+			System.out.println();
+			System.out.print("┗"+"━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc3-TotalUserAc2==0) {
+			System.out.print("╒"+"━━━━━━━━━━━━━━━━━━━━━━"+"╕");
+			System.out.println();
+			System.out.print("┃"+"  DataDuplicated: JPN"+" ┃");
+			System.out.println();
+			System.out.print("╘"+"━━━━━━━━━━━━━━━━━━━━━━"+"╛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc3-TotalUserAc2>1) {
+			System.out.println("┏"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println("┃"+"Maybe someone else had added account while the script is being executing,"+"  ┃");
+			System.out.println("┃"+"need to confirm the accounts result on Octane web site."+"                    ┃");
+			System.out.println("┗"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}
+	}
+	
+	
+	
+	int TotalUserAc4=0;
+	public void RefreshAc4() throws Exception {
+		getDriver().navigate().refresh();
+		Thread.sleep(10000);
+		
+		try {
+			getDriver().switchTo().alert().accept();
+			
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				TotalUserAc4 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc3 is: " + TotalUserAc3);
+				System.out.println("TotalUserAc4 is: " + TotalUserAc4);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc3 is: " + TotalUserAc3);
+				TotalUserAc4 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc4 is: " + TotalUserAc4);
+			}
+			
+		} catch (Exception NoAlertPresentException) {
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				TotalUserAc4 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc3 is: " + TotalUserAc3);
+				System.out.println("TotalUserAc4 is: " + TotalUserAc4);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc3 is: " + TotalUserAc3);
+				TotalUserAc4 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc4 is: " + TotalUserAc4);
+			}
+			
+		}
+	}
+	
+	public void DisplayAC4Result() throws Exception {
+		if(TotalUserAc4-TotalUserAc3==1) {
+			System.out.print("┏"+"━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println();
+			System.out.print("┃"+"  AccountAdded: "+"FRA"+"  ┃");
+			System.out.println();
+			System.out.print("┗"+"━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc4-TotalUserAc3==0) {
+			System.out.print("╒"+"━━━━━━━━━━━━━━━━━━━━━━"+"╕");
+			System.out.println();
+			System.out.print("┃"+"  DataDuplicated: FRA"+" ┃");
+			System.out.println();
+			System.out.print("╘"+"━━━━━━━━━━━━━━━━━━━━━━"+"╛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc4-TotalUserAc3>1) {
+			System.out.println("┏"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println("┃"+"Maybe someone else had added account while the script is being executing,"+"  ┃");
+			System.out.println("┃"+"need to confirm the accounts result on Octane web site."+"                    ┃");
+			System.out.println("┗"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}
+	}
+	
+	
+	
+	int TotalUserAc5=0;
+	public void RefreshAc5() throws Exception {
+		getDriver().navigate().refresh();
+		Thread.sleep(10000);
+		
+		try {
+			getDriver().switchTo().alert().accept();
+			
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				TotalUserAc5 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc4 is: " + TotalUserAc4);
+				System.out.println("TotalUserAc5 is: " + TotalUserAc5);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc4 is: " + TotalUserAc4);
+				TotalUserAc5 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc5 is: " + TotalUserAc5);
+			}
+			
+		} catch (Exception NoAlertPresentException) {
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				TotalUserAc5 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc4 is: " + TotalUserAc4);
+				System.out.println("TotalUserAc5 is: " + TotalUserAc5);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc4 is: " + TotalUserAc4);
+				TotalUserAc5 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc5 is: " + TotalUserAc5);
+			}
+			
+		}
+	}
+	
+	public void DisplayAC5Result() throws Exception {
+		if(TotalUserAc5-TotalUserAc4==1) {
+			System.out.print("┏"+"━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println();
+			System.out.print("┃"+"  AccountAdded: "+"DEU"+"  ┃");
+			System.out.println();
+			System.out.print("┗"+"━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc5-TotalUserAc4==0) {
+			System.out.print("╒"+"━━━━━━━━━━━━━━━━━━━━━━"+"╕");
+			System.out.println();
+			System.out.print("┃"+"  DataDuplicated: DEU"+" ┃");
+			System.out.println();
+			System.out.print("╘"+"━━━━━━━━━━━━━━━━━━━━━━"+"╛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc5-TotalUserAc4>1) {
+			System.out.println("┏"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println("┃"+"Maybe someone else had added account while the script is being executing,"+"  ┃");
+			System.out.println("┃"+"need to confirm the accounts result on Octane web site."+"                    ┃");
+			System.out.println("┗"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}
+	}
+	
+	
+	
+	int TotalUserAc6=0;
+	public void RefreshAc6() throws Exception {
+		getDriver().navigate().refresh();
+		Thread.sleep(10000);
+		
+		try {
+			getDriver().switchTo().alert().accept();
+			
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				TotalUserAc6 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc5 is: " + TotalUserAc5);
+				System.out.println("TotalUserAc6 is: " + TotalUserAc6);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc5 is: " + TotalUserAc5);
+				TotalUserAc6 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc6 is: " + TotalUserAc6);
+			}
+			
+		} catch (Exception NoAlertPresentException) {
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				TotalUserAc6 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc5 is: " + TotalUserAc5);
+				System.out.println("TotalUserAc6 is: " + TotalUserAc6);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc5 is: " + TotalUserAc5);
+				TotalUserAc6 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc6 is: " + TotalUserAc6);
+			}
+			
+		}
+	}
+	
+	public void DisplayAC6Result() throws Exception {
+		if(TotalUserAc6-TotalUserAc5==1) {
+			System.out.print("┏"+"━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println();
+			System.out.print("┃"+"  AccountAdded: "+"RUS"+"  ┃");
+			System.out.println();
+			System.out.print("┗"+"━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc6-TotalUserAc5==0) {
+			System.out.print("╒"+"━━━━━━━━━━━━━━━━━━━━━━"+"╕");
+			System.out.println();
+			System.out.print("┃"+"  DataDuplicated: RUS"+" ┃");
+			System.out.println();
+			System.out.print("╘"+"━━━━━━━━━━━━━━━━━━━━━━"+"╛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc6-TotalUserAc5>1) {
+			System.out.println("┏"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println("┃"+"Maybe someone else had added account while the script is being executing,"+"  ┃");
+			System.out.println("┃"+"need to confirm the accounts result on Octane web site."+"                    ┃");
+			System.out.println("┗"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}
+	}
+	
+	
+	
+	int TotalUserAc7=0;
+	public void RefreshAc7() throws Exception{
+		getDriver().navigate().refresh();
+		Thread.sleep(10000);
+		
+		try {
+			getDriver().switchTo().alert().accept();
+			
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				TotalUserAc7 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc6 is: " + TotalUserAc6);
+				System.out.println("TotalUserAc7 is: " + TotalUserAc7);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc6 is: " + TotalUserAc6);
+				TotalUserAc7 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc7 is: " + TotalUserAc7);
+			}
+			
+		} catch (Exception NoAlertPresentException) {
+			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+			Thread.sleep(15000);
+			
+			try {
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				TotalUserAc7 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc6 is: " + TotalUserAc6);
+				System.out.println("TotalUserAc7 is: " + TotalUserAc7);
+			} catch (Exception NumberFormatException) {
+				Thread.sleep(15000);
+				WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
+				System.out.println("TotalUserAc6 is: " + TotalUserAc6);
+				TotalUserAc7 = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
+				System.out.println("TotalUserAc7 is: " + TotalUserAc7);
+			}
+			
+		}
+	}
+	
+	public void DisplayAC7Result() throws Exception {
+		if(TotalUserAc7-TotalUserAc6==1) {
+			System.out.print("┏"+"━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println();
+			System.out.print("┃"+"  AccountAdded: "+"ESP"+"  ┃");
+			System.out.println();
+			System.out.print("┗"+"━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc7-TotalUserAc6==0) {
+			System.out.print("╒"+"━━━━━━━━━━━━━━━━━━━━━━"+"╕");
+			System.out.println();
+			System.out.print("┃"+"  DataDuplicated: ESP"+" ┃");
+			System.out.println();
+			System.out.print("╘"+"━━━━━━━━━━━━━━━━━━━━━━"+"╛");
+			System.out.println();
+			System.out.println();
+		}else if (TotalUserAc7-TotalUserAc6>1) {
+			System.out.println("┏"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┓");
+			System.out.println("┃"+"Maybe someone else had added account while the script is being executing,"+"  ┃");
+			System.out.println("┃"+"need to confirm the accounts result on Octane web site."+"                    ┃");
+			System.out.println("┗"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┛");
+			System.out.println();
+			System.out.println();
+		}
+	}
+
+
+	
+
+
+	
+	
+	
+	
+	public void ClickAddUserBtn() throws Exception {
+		getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
+		WebElement AddUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/div[1]/div[1]/div[1]/ng-switch/div/button/div/span"));
+		AddUser.click();
 	}
 	
 	
@@ -293,30 +781,6 @@ public class OctaneTestSuitePage extends PageObject {
 		InputEmail_Same.sendKeys(Email);
 	}
 
-	public void ShowResult2() {
-//		getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-//		WebElement LoginN = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[1]/alm-presenter/label/div/alm-string-field-editor/div/div[1]/input"));
-//		WebElement SucMsg = find(org.openqa.selenium.By.xpath("/html/body/div[4]/ng-include/div/div/div/span"));
-		WebElement DupMsg = find(org.openqa.selenium.By.xpath("/html/body/div[7]/div/div[2]/div/div[2]"));
-		if(getDriver().findElement(org.openqa.selenium.By.tagName("body")).getText().contains("was created with")) {
-			System.out.print("┏"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"┓");
-			System.out.println();
-			System.out.print("┃"+"  AccountAdded: "+"中二"+"     ┃");
-			System.out.println();
-			System.out.print("┗"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"┛");
-			System.out.println();
-		}else if(DupMsg!=null){
-			System.out.print("╒"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"╕");
-			System.out.println();
-			System.out.print("┃"+"   DataDuplicated"+"   ┃");
-			System.out.println();
-			System.out.print("╘"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"╛");
-			System.out.println();
-		}else {
-			System.out.println("!!!!!!!THIS IS TEST MESSAGE!!!!!!!");
-		}
-	}
-
 	public void LoginNameAc3(String LoginName) throws Exception {
 		WebElement LoginN = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[1]/alm-presenter/label/div/alm-string-field-editor/div/div[1]/input"));
 		LoginN.click();
@@ -345,25 +809,6 @@ public class OctaneTestSuitePage extends PageObject {
 		InputEmail.click();
 		WebElement InputEmail_Same = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[4]/alm-presenter/label/div/alm-string-field-editor/div/div[1]/input"));
 		InputEmail_Same.sendKeys(Email);
-	}
-
-	public void ShowResult3() {
-		WebElement DupMsg = find(org.openqa.selenium.By.xpath("/html/body/div[7]/div/div[2]/div/div[2]"));
-		if(DupMsg==null) {
-			System.out.print("┏"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"┓");
-			System.out.println();
-			System.out.print("┃"+"  AccountAdded: "+"日语"+"     ┃");
-			System.out.println();
-			System.out.print("┗"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"┛");
-			System.out.println();
-		}else {
-			System.out.print("╒"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"╕");
-			System.out.println();
-			System.out.print("┃"+"   DataDuplicated"+"   ┃");
-			System.out.println();
-			System.out.print("╘"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"━"+"╛");
-			System.out.println();
-		}
 	}
 
 	public void LoginNameAc4(String LoginName) throws Exception {
@@ -494,73 +939,30 @@ public class OctaneTestSuitePage extends PageObject {
 		WebElement InputEmail_Same = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[4]/alm-presenter/label/div/alm-string-field-editor/div/div[1]/input"));
 		InputEmail_Same.sendKeys(Email);
 	}
+
 	
 	
-	int TotalUserAfter = 0;
-	public void ReloadPage() throws Exception {
-		
-		//防止在添加重复账户的情况下尝试刷新页面的时候的alert弹窗
-		try {
-			getDriver().navigate().refresh();
-			getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-			find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/div[1]/div[1]/div[1]/ng-switch/div/button/div/span"));
-		} catch (Exception UnhandledAlertException) {
-			getDriver().switchTo().alert().accept();
-			Thread.sleep(10000);
-		}
-		
-		
-		//以当前账户总数减去添加之前的账户总数是否等于7来简略判断7个账户是否已经添加成功
-		getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-		
-		try {
-			Thread.sleep(10000);
-			WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
-			System.out.println(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
-			TotalUserAfter = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
-		} catch (Exception NumberFormatException) {
-			Thread.sleep(10000);
-			WebElement TotalUser = find(org.openqa.selenium.By.xpath("/html/body/div[2]/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/entities-container/div/selection-status-bar/div/span[2]"));
-			System.out.println(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
-			TotalUserAfter = Integer.parseInt(TotalUser.getText().substring(TotalUser.getText().length()-3).trim());
-		}
-		
-		if(TotalUserAfter-TotalUserBefore==7) {
-			System.out.println();
-			System.out.println("┏"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┓");
-			System.out.println("┃"+"The following accounts have been added:                         ┃");
-			System.out.println("┃"+"Account 1: "+"\"中文ボｱБЖÄê¢Àü¢ÁÉ»¢À€¢@nga\" with Password \"Welcome1\""+"   ┃");
-			System.out.println("┃"+"Account 2: "+"\"chs@nga\" with Password \"Welcome1\""+"                   ┃");
-			System.out.println("┃"+"Account 3: "+"\"jpn@nga\" with Password \"Welcome1\""+"                   ┃");
-			System.out.println("┃"+"Account 4: "+"\"fra@nga\" with Password \"Welcome1\""+"                   ┃");
-			System.out.println("┃"+"Account 5: "+"\"deu@nga\" with Password \"Welcome1\""+"                   ┃");
-			System.out.println("┃"+"Account 6: "+"\"rus@nga\" with Password \"Welcome1\""+"                   ┃");
-			System.out.println("┃"+"Account 7: "+"\"esp@nga\" with Password \"Welcome1\""+"                   ┃");
-			System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┛");
-			System.out.println();
-		}else if (TotalUserAfter-TotalUserBefore>7) {
-			System.out.println();
-			System.out.println("┏"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┓");
-			System.out.println("┃"+"Maybe someone else had added account while the script is being executing,"+"  ┃");
-			System.out.println("┃"+"need to confirm the accounts result on Octane web site."+"                    ┃");
-			System.out.println("┗"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┛");
-			System.out.println();
-		}else if (TotalUserAfter-TotalUserBefore<7 && TotalUserAfter-TotalUserBefore!=0) {
-			System.out.println();
-			System.out.println("┏"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┓");
-			System.out.println("┃"+"Maybe there are some failures existed during the script processing,"+"   ┃");
-			System.out.println("┃"+"please confirm the accounts result on Octane web site. "+"               ┃");
-			System.out.println("┗"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┛");
-			System.out.println();
-		}else if (TotalUserAfter==TotalUserBefore) {
-			System.out.println();
-			System.out.println("┏"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┓");
-			System.out.println("┃"+"Maybe all the accounts have been duplicated,"+"   ┃");
-			System.out.println("┃"+"please confirm the accounts information. "+"      ┃");
-			System.out.println("┗"+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"+"┛");
-			System.out.println();
-		}
-		
-	}
+
+	
+
+	
+
+	
+
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
 
 }

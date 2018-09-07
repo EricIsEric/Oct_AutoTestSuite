@@ -28,9 +28,11 @@ Then Make sure the In workspaces displayed Default_workspace as default
 Then click Add role button
 Then select Role2 as Space Admin
 Then click the ADD&ANOTHER button
+Then refresh webpage after clicking button AC1
+Then display result for Account1
 
 Scenario: (4) Start to add Account_Two (Chinese2)
-Then check previous status
+Then click AddUser button
 Then input Login name as chs@nga
 Then input First name as Chs1
 Then input Last name as Chs2
@@ -43,10 +45,11 @@ Then Make sure the In workspaces displayed Default_workspace as default
 Then click Add role button
 Then select Role2 as Space Admin
 Then click the ADD&ANOTHER button
-
+Then refresh webpage after clicking button AC2
+Then display result for Account2
 
 Scenario: (5) Start to add Account_Three (Japanese)
-Then check previous status
+Then click AddUser button
 Then input Login name as jpn@nga
 Then input First name as Jpn1
 Then input Last name as Jpn2
@@ -59,9 +62,11 @@ Then Make sure the In workspaces displayed Default_workspace as default
 Then click Add role button
 Then select Role2 as Space Admin
 Then click the ADD&ANOTHER button
+Then refresh webpage after clicking button AC3
+Then display result for Account3
 
 Scenario: (6) Start to add Account_Four (French)
-Then check previous status
+Then click AddUser button
 Then input Login name as fra@nga
 Then input First name as Fra1
 Then input Last name as Fra2
@@ -74,9 +79,11 @@ Then Make sure the In workspaces displayed Default_workspace as default
 Then click Add role button
 Then select Role2 as Space Admin
 Then click the ADD&ANOTHER button
+Then refresh webpage after clicking button AC4
+Then display result for Account4
 
 Scenario: (7) Start to add Account_Five (German)
-Then check previous status
+Then click AddUser button
 Then input Login name as deu@nga
 Then input First name as Deu1
 Then input Last name as Deu2
@@ -89,9 +96,11 @@ Then Make sure the In workspaces displayed Default_workspace as default
 Then click Add role button
 Then select Role2 as Space Admin
 Then click the ADD&ANOTHER button
+Then refresh webpage after clicking button AC5
+Then display result for Account5
 
 Scenario: (8) Start to add Account_Six (Russian)
-Then check previous status
+Then click AddUser button
 Then input Login name as rus@nga
 Then input First name as Rus1
 Then input Last name as Rus2
@@ -104,9 +113,11 @@ Then Make sure the In workspaces displayed Default_workspace as default
 Then click Add role button
 Then select Role2 as Space Admin
 Then click the ADD&ANOTHER button
+Then refresh webpage after clicking button AC6
+Then display result for Account6
 
 Scenario: (9) Start to add Account_Seven (Spanish)
-Then check previous status
+Then click AddUser button
 Then input Login name as esp@nga
 Then input First name as Esp1
 Then input Last name as Esp2
@@ -119,7 +130,8 @@ Then Make sure the In workspaces displayed Default_workspace as default
 Then click Add role button
 Then select Role2 as Space Admin
 Then click the ADD&ANOTHER button
-Then reload final page
+Then refresh webpage after clicking button AC7
+Then display result for Account7
 
 
 

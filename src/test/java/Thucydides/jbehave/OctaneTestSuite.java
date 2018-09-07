@@ -3,6 +3,7 @@ package Thucydides.jbehave;
 
 import org.jbehave.core.annotations.*;
 
+
 import Thucydides.pages.BrowserObjectAndCommonMethodPage;
 import Thucydides.pages.OctaneTestSuitePage;
 import Thucydides.steps.OctaneTestSuiteSteps;
@@ -37,8 +38,7 @@ public class OctaneTestSuite{
 	
 	@Then("the Octane main page should be displayed")
 	public void LoginAssertion(){
-		 steps.LoginAssertion();    //层级调用会出空指针错误 
-//		octaneTestSuitePage.LoginAssertion();
+		 steps.LoginAssertion(); 
 	}
 	
 	@Then("click Settings button")
@@ -126,17 +126,21 @@ public class OctaneTestSuite{
 		steps.ClickAddAnoButn();  
 	}
 	
-	@Then("show the AccountResult1")
-	public void ShowResult() throws Exception {
-		steps.ShowResult1();  
+	@Then("refresh webpage after clicking button AC1")
+	public void RefreshAc1() throws Exception {
+		steps.RefreshAc1();
+	}
+	
+	@Then("display result for Account1")
+	public void DisplayAC1Result() throws Exception {
+		steps.DisplayAC1Result();
 	}
 	
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-//
 	
-	
-	@Then("check previous status")
-	public void PrevStatus() throws Exception {
-		steps.PrevStatus();
+	@Then("click AddUser button")
+	public void ClickAddUserBtn() throws Exception {
+		steps.ClickAddUserBtn();
 	}
 	
 	@Then("input Login name as chs@nga")
@@ -159,9 +163,14 @@ public class OctaneTestSuite{
 		steps.EmailAc2();
 	}
 	
-	@Then("show the AccountResult2")
-	public void ShowResult2() {
-		steps.ShowResult2();
+	@Then("refresh webpage after clicking button AC2")
+	public void RefreshAc2() throws Exception {
+		steps.RefreshAc2();
+	}
+	
+	@Then("display result for Account2")
+	public void DisplayAC2Result() throws Exception {
+		steps.DisplayAC2Result();
 	}
 	
 	
@@ -193,9 +202,14 @@ public class OctaneTestSuite{
 		steps.LangForAc3();
 	}
 	
-	@Then("show the AccountResult3")
-	public void ShowResult3() {
-		steps.ShowResult3();
+	@Then("refresh webpage after clicking button AC3")
+	public void RefreshAc3() throws Exception {
+		steps.RefreshAc3();
+	}
+	
+	@Then("display result for Account3")
+	public void DisplayAC3Result() throws Exception {
+		steps.DisplayAC3Result();
 	}
 	
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-//
@@ -225,6 +239,16 @@ public class OctaneTestSuite{
 		steps.LangForAc4();
 	}
 	
+	@Then("refresh webpage after clicking button AC4")
+	public void RefreshAc4() throws Exception {
+		steps.RefreshAc4();
+	}
+	
+	@Then("display result for Account4")
+	public void DisplayAC4Result() throws Exception {
+		steps.DisplayAC4Result();
+	}
+	
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-//
 	
 	@Then("input Login name as deu@nga")
@@ -250,6 +274,16 @@ public class OctaneTestSuite{
 	@Then("select Language as German")
 	public void LangForAc5() throws Exception {
 		steps.LangForAc5();
+	}
+	
+	@Then("refresh webpage after clicking button AC5")
+	public void RefreshAc5() throws Exception {
+		steps.RefreshAc5();
+	}
+	
+	@Then("display result for Account5")
+	public void DisplayAC5Result() throws Exception {
+		steps.DisplayAC5Result();
 	}
 	
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-//
@@ -279,6 +313,16 @@ public class OctaneTestSuite{
 		steps.LangForAc6();
 	}
 	
+	@Then("refresh webpage after clicking button AC6")
+	public void RefreshAc6() throws Exception {
+		steps.RefreshAc6();
+	}
+	
+	@Then("display result for Account6")
+	public void DisplayAC6Result() throws Exception {
+		steps.DisplayAC6Result();
+	}
+	
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-//	
 	
 	@Then("input Login name as esp@nga")
@@ -306,9 +350,14 @@ public class OctaneTestSuite{
 		steps.LangForAc7();
 	}
 	
-	@Then("reload final page")
-	public void ReloadPage() throws Exception {
-		steps.ReloadPage();
+	@Then("refresh webpage after clicking button AC7")
+	public void RefreshAc7() throws Exception {
+		steps.RefreshAc7();
+	}
+	
+	@Then("display result for Account7")
+	public void DisplayAC7Result() throws Exception {
+		steps.DisplayAC7Result();
 	}
 	
 	
