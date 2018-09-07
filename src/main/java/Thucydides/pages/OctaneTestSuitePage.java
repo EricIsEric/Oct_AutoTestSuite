@@ -17,8 +17,8 @@ public class OctaneTestSuitePage extends PageObject {
 	}
 
 	public void accessOctaneURL() throws Exception {
-		browserObjectAndCommonMethodPage.openURL("http://myd-vm00464.hpeswlab.net:20942/ui/?p=1001/1002#/");
-//		browserObjectAndCommonMethodPage.openURL(System.getProperty("JenkinsURL"));
+//		browserObjectAndCommonMethodPage.openURL("http://myd-vm00464.hpeswlab.net:20942/ui/?p=1001/1002#/");
+		browserObjectAndCommonMethodPage.openURL(System.getProperty("JenkinsURL"));
 	}
 
 	public void EnterLoginInfo(String username, String password) {
