@@ -188,6 +188,7 @@ public class OctaneTestSuitePage extends PageObject {
 	public void SelectRole1() throws Exception {
 		WebElement RoleListBox = find(org.openqa.selenium.By.xpath("//div[@data-aid='role-assignment-1']//div[@data-aid='role']"));
 		RoleListBox.click();
+		Thread.sleep(3000);
 		WebElement Role1Item = find(By.xpath("//div[@data-aid='role-assignment-1']//span[@title='Workspace Admin']"));
 		Role1Item.click();
 	}
@@ -202,6 +203,7 @@ public class OctaneTestSuitePage extends PageObject {
 	public void SelectRole2() throws Exception {
 		WebElement RoleListBox = find(org.openqa.selenium.By.xpath("//div[@data-aid='role-assignment-2']//div[@data-aid='role']"));
 		RoleListBox.click();
+		Thread.sleep(3000);
 		WebElement Role2Item = find(org.openqa.selenium.By.xpath("//div[@data-aid='role-assignment-2']//span[@title='Space Admin']"));
 		Role2Item.click();
 		Thread.sleep(3000);
