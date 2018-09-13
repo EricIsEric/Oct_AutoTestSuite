@@ -30,7 +30,7 @@ public class BrowserObjectAndCommonMethodPage extends PageObject {
 	}
 
 	public void ClickLoginBtn() throws Exception {
-		find(By.xpath("/html/body/div/div/ng-include/div/div[6]/div/form/fieldset/div/div[4]/button/translate")).click();
+		find(By.xpath("//button[@data-aid='login-app-buttons-authenticate']")).click();
 	}
 	
 	

@@ -30,20 +30,10 @@ public class OctaneTestSuiteSteps {
 	public void LoginAssertion() {
 		octaneTestSuitePage.LoginAssertion();
 	}
-
+	
 	@Step
-	public void ClickSettings() throws Exception {
-		octaneTestSuitePage.ClickSettings();
-	}
-
-	@Step
-	public void ClickSpaces() throws Exception {
-		octaneTestSuitePage.ClickSpaces();
-	}
-
-	@Step
-	public void ClickDefaultIsolated_Steps() throws Exception {
-		octaneTestSuitePage.ClickDefaultIsolated_Page();
+	public void ClickDefault() throws Exception {
+	octaneTestSuitePage.ClickDefault();	
 	}
 
 	@Step
@@ -77,10 +67,16 @@ public class OctaneTestSuiteSteps {
 	public void InputPhoneNum() throws Exception {
 		octaneTestSuitePage.InputPhoneNum("12345678");
 	}
+	
+	@Step
+	public void InputPhoneNumAfter() throws Exception {
+		octaneTestSuitePage.InputPhoneNumForAfter("12345678");
+	}
+
 
 	@Step
 	public void SelectLanguage() throws Exception {
-		octaneTestSuitePage.Pub_SelLanguage("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/field-editor-value-viewer/div/reference-field-editor-preeditor/div/div/field-editor-preeditor/div/div/div[1]/div/div", "/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/div/div/div/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[1]/div/div[1]/div/span");
+		octaneTestSuitePage.Pub_SelLanguage("//div[@data-aid='dummy-aid']//div[@class='field-editor-preeditor-single-value-container cols']", "//span[@title='Chinese - 中文（简体）']");
 	}
 
 	@Step
@@ -91,11 +87,6 @@ public class OctaneTestSuiteSteps {
 	@Step
 	public void SelectRole1() throws Exception {
 		octaneTestSuitePage.SelectRole1();
-	}
-
-	@Step
-	public void CheckWorkspacesRole1() throws Exception {
-		octaneTestSuitePage.CheckWorkspacesRole1();
 	}
 
 	@Step
@@ -114,23 +105,13 @@ public class OctaneTestSuiteSteps {
 	}
 	
 	@Step
-	public void RefreshAc1() throws Exception {
-		octaneTestSuitePage.RefreshAc1();
+	public void CheckPerOneResult() {
+		octaneTestSuitePage.CheckPerOneResult();
 	}
 	
 	@Step
 	public void ClickAddUserBtn() throws Exception {
 		octaneTestSuitePage.ClickAddUserBtn();
-	}
-	
-	@Step
-	public void DisplayAC1Result() throws Exception {
-		octaneTestSuitePage.DisplayAC1Result();
-	}
-
-	@Step
-	public void ClickUsers() {
-		octaneTestSuitePage.ClickUsers();
 	}
 	
 	//-=-=-=-=-=-=-==-=-=-=-=-=-==-=--=-=-=-==-=-//
@@ -141,28 +122,20 @@ public class OctaneTestSuiteSteps {
 	}
 
 	@Step
-	public void FirNameAc2() throws Exception {
-		octaneTestSuitePage.Pub_FirstName("Chs1");
+	public void FirNameAc() throws Exception {
+		octaneTestSuitePage.FirstNameForAc("chs1");
 	}
+	
+	
 
 	@Step
 	public void LasNameAc2() throws Exception {
-		octaneTestSuitePage.Pub_LastName("Chs2");
+		octaneTestSuitePage.LastNameForAc("chs2");
 	}
 
 	@Step
 	public void EmailAc2() throws Exception {
-		octaneTestSuitePage.Pub_Email("chs@nga");
-	}
-	
-	@Step
-	public void RefreshAc2() throws Exception {
-		octaneTestSuitePage.RefreshAc2();
-	}
-	
-	@Step
-	public void DisplayAC2Result() throws Exception {
-		octaneTestSuitePage.DisplayAC2Result();
+		octaneTestSuitePage.EmailForAc("chs@nga");
 	}
 	
 	//-=-=-=-=-=-=-==-=-=-=-=-=-==-=--=-=-=-==-=-//	
@@ -174,32 +147,32 @@ public class OctaneTestSuiteSteps {
 
 	@Step
 	public void FirstNameAc3() throws Exception {
-		octaneTestSuitePage.Pub_FirstName("Jpn1");
+		octaneTestSuitePage.Pub_FirstName("jpn1");
+	}
+	
+	@Step
+	public void FirNameAc3() throws Exception {
+		octaneTestSuitePage.FirstNameForAc("Jpn1");
 	}
 
 	@Step
 	public void LastNameAc3() throws Exception {
-		octaneTestSuitePage.Pub_LastName("Jpn2");
+		octaneTestSuitePage.LastNameForAc("jpn2");
+	}
+	
+	@Step
+	public void LastNameForAc() throws Exception {
+		octaneTestSuitePage.LastNameForAc("Jpn2");
 	}
 
 	@Step
 	public void EmailAc3() throws Exception {
-		octaneTestSuitePage.Pub_Email("jpn@nga");
+		octaneTestSuitePage.EmailForAc("jpn@nga");
 	}
 
 	@Step
 	public void LangForAc3() throws Exception {
-		octaneTestSuitePage.Pub_SelLanguage("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/field-editor-value-viewer/div/reference-field-editor-preeditor/div/div/field-editor-preeditor/div/div/div[1]/div/div", "/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/div/div/div/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[5]/div/div[1]/div/span");
-	}
-	
-	@Step
-	public void RefreshAc3() throws Exception {
-		octaneTestSuitePage.RefreshAc3();
-	}
-	
-	@Step
-	public void DisplayAC3Result() throws Exception {
-	octaneTestSuitePage.DisplayAC3Result();	
+		octaneTestSuitePage.Pub_SelLanguage("//div[@data-aid='dummy-aid']//div[@class='field-editor-preeditor-single-value-container cols']", "//span[@title='Japanese - 日本語']");
 	}
 
 	//-=-=-=-=-=-=-==-=-=-=-=-=-==-=--=-=-=-==-=-//	
@@ -211,32 +184,22 @@ public class OctaneTestSuiteSteps {
 
 	@Step
 	public void FirstNameAc4() throws Exception {
-		octaneTestSuitePage.Pub_FirstName("Fra1");
+		octaneTestSuitePage.FirstNameForAc("fra1");
 	}
 
 	@Step
 	public void LastNameAc4() throws Exception {
-		octaneTestSuitePage.Pub_LastName("Fra2");
+		octaneTestSuitePage.LastNameForAc("fra2");
 	}
 
 	@Step
 	public void EmailAC4() throws Exception {
-		octaneTestSuitePage.Pub_Email("fra@nga");
+		octaneTestSuitePage.EmailForAc("fra@nga");
 	}
 
 	@Step
 	public void LangForAc4() throws Exception {
-		octaneTestSuitePage.Pub_SelLanguage("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/field-editor-value-viewer/div/reference-field-editor-preeditor/div/div/field-editor-preeditor/div/div/div[1]/div/div", "/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/div/div/div/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[3]/div/div[1]/div/span");
-	}
-	
-	@Step
-	public void RefreshAc4() throws Exception {
-		octaneTestSuitePage.RefreshAc4();
-	}
-	
-	@Step
-	public void DisplayAC4Result() throws Exception {
-		octaneTestSuitePage.DisplayAC4Result();
+		octaneTestSuitePage.Pub_SelLanguage("//div[@data-aid='dummy-aid']//div[@class='field-editor-preeditor-single-value-container cols']", "//span[@title='French - français']");
 	}
 
 
@@ -249,32 +212,22 @@ public class OctaneTestSuiteSteps {
 
 	@Step
 	public void FirstNameAc5() throws Exception{
-		octaneTestSuitePage.Pub_FirstName("Deu1");
+		octaneTestSuitePage.FirstNameForAc("deu1");
 	}
 
 	@Step
 	public void LastNameAc5() throws Exception {
-		octaneTestSuitePage.Pub_LastName("Deu2");
+		octaneTestSuitePage.LastNameForAc("deu2");
 	}
 
 	@Step
 	public void EmailAc5() throws Exception {
-		octaneTestSuitePage.Pub_Email("deu@nga");
+		octaneTestSuitePage.EmailForAc("deu@nga");
 	}
 
 	@Step
 	public void LangForAc5() throws Exception {
-		octaneTestSuitePage.Pub_SelLanguage("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/field-editor-value-viewer/div/reference-field-editor-preeditor/div/div/field-editor-preeditor/div/div/div[1]/div/div", "/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/div/div/div/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[4]/div/div[1]/div/span");
-	}
-	
-	@Step
-	public void RefreshAc5() throws Exception {
-		octaneTestSuitePage.RefreshAc5();
-	}
-	
-	@Step
-	public void DisplayAC5Result() throws Exception {
-		octaneTestSuitePage.DisplayAC5Result();
+		octaneTestSuitePage.Pub_SelLanguage("//div[@data-aid='dummy-aid']//div[@class='field-editor-preeditor-single-value-container cols']", "//span[@title='German - Deutsch']");
 	}
 
 
@@ -288,32 +241,22 @@ public class OctaneTestSuiteSteps {
 	
 	@Step
 	public void FirstNameAc6() throws Exception {
-		octaneTestSuitePage.Pub_FirstName("Rus1");
+		octaneTestSuitePage.FirstNameForAc("rus1");
 	}
 
 	@Step
 	public void LastNameAc6() throws Exception {
-		octaneTestSuitePage.Pub_LastName("Rus2");
+		octaneTestSuitePage.LastNameForAc("rus2");
 	}
 
 	@Step
 	public void EmailAc6() throws Exception {
-		octaneTestSuitePage.Pub_Email("rus@nga");
+		octaneTestSuitePage.EmailForAc("rus@nga");
 	}
 
 	@Step
 	public void LangForAc6() throws Exception {
-		octaneTestSuitePage.Pub_SelLanguage("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/field-editor-value-viewer/div/reference-field-editor-preeditor/div/div/field-editor-preeditor/div/div/div[1]/div/div", "/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/div/div/div/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[6]/div/div[1]/div/span");
-	}
-	
-	@Step
-	public void RefreshAc6() throws Exception {
-		octaneTestSuitePage.RefreshAc6();
-	}
-	
-	@Step
-	public void DisplayAC6Result() throws Exception {
-		octaneTestSuitePage.DisplayAC6Result();
+		octaneTestSuitePage.Pub_SelLanguage("//div[@data-aid='dummy-aid']//div[@class='field-editor-preeditor-single-value-container cols']", "//span[@title='Russian - русский']");
 	}
 	
 	
@@ -326,62 +269,91 @@ public class OctaneTestSuiteSteps {
 
 	@Step
 	public void FirstNameAc7() throws Exception {
-		octaneTestSuitePage.Pub_FirstName("Esp1");
+		octaneTestSuitePage.FirstNameForAc("esp1");
 	}
 
 	@Step
 	public void LastNameAc7() throws Exception {
-		octaneTestSuitePage.Pub_LastName("Esp2");
+		octaneTestSuitePage.LastNameForAc("esp2");
 	}
 
 	@Step
 	public void EmailAc7() throws Exception {
-		octaneTestSuitePage.Pub_Email("esp@nga");
+		octaneTestSuitePage.EmailForAc("esp@nga");
 	}
 
 	@Step
 	public void LangForAc7() throws Exception {
-		octaneTestSuitePage.Pub_SelLanguage("/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/field-editor-value-viewer/div/reference-field-editor-preeditor/div/div/field-editor-preeditor/div/div/div[1]/div/div", "/html/body/div[2]/div[5]/div[2]/div/div[2]/div/form/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div[6]/alm-presenter/label/div/string-as-list-editor/smart-editor/div/div/div/div/field-editor-selector/div/div/selector-search-list/div/div/ul/li/ul/li[7]/div/div[1]/div/span");
+		octaneTestSuitePage.Pub_SelLanguage("//div[@data-aid='dummy-aid']//div[@class='field-editor-preeditor-single-value-container cols']", "//div[@data-text-value='Spanish - español']//span[@title='Spanish - español']");
+	}
+
+	
+	@Step
+	public void ClearLoginName() throws Exception {
+		octaneTestSuitePage.ClearLoginName();
+	}
+
+	
+	@Step
+	public void ClearFirstName() throws Exception {
+		octaneTestSuitePage.ClearFirstName();
+	}
+
+	@Step
+	public void ClearLastName() throws Exception {
+		octaneTestSuitePage.ClearLastName();
+	}
+
+	@Step
+	public void ClearEmail() throws Exception {
+		octaneTestSuitePage.ClearEmail();
+	}
+
+	@Step
+	public void ClearPhone() throws Exception {
+		octaneTestSuitePage.ClearPhone();
+	}
+
+	@Step
+	public void ClearPrePwd() throws Exception {
+		octaneTestSuitePage.ClearPrePwd();
+	}
+
+	@Step
+	public void ClearConPwd() throws Exception {
+		octaneTestSuitePage.ClearConPwd();
+	}
+
+	@Step
+	public void PhoneNumAc2() throws Exception {
+		octaneTestSuitePage.PhoneNumAcs("12345678");
 	}
 	
 	@Step
-	public void RefreshAc7() throws Exception {
-		octaneTestSuitePage.RefreshAc7();
+	public void PhoneNumAc3() throws Exception {
+		octaneTestSuitePage.PhoneNumAcs("12345678");
 	}
 	
 	@Step
-	public void DisplayAC7Result() throws Exception {
-		octaneTestSuitePage.DisplayAC7Result();
+	public void PhoneNumAc4() throws Exception {
+		octaneTestSuitePage.PhoneNumAcs("12345678");
+	}
+	
+	@Step
+	public void PhoneNumAc5() throws Exception {
+		octaneTestSuitePage.PhoneNumAcs("12345678");
+	}
+	
+	@Step
+	public void PhoneNumAc6() throws Exception {
+		octaneTestSuitePage.PhoneNumAcs("12345678");
+	}
+	
+	@Step
+	public void PhoneNumAc7() throws Exception {
+		octaneTestSuitePage.PhoneNumAcs("12345678");
 	}
 
 	
-
 	
-	
-
-	
-
-	
-	
-
-	
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-	
-
 }

@@ -41,24 +41,9 @@ public class OctaneTestSuite{
 		 steps.LoginAssertion(); 
 	}
 	
-	@Then("click Settings button")
-	public void ClickSettings() throws Exception{
-		steps.ClickSettings();  
-	}
-	
-	@Then("select Spaces item")
-	public void ClickSpaces() throws Exception{
-		 steps.ClickSpaces();  
-	}
-	
-	@Then("click USERS from the top menu")
-	public void ClickUsers() {
-		steps.ClickUsers();
-	}
-	
-	@Then("click Default Isolated Space from the left panel")
-	public void ClickDefaultIsolated() throws Exception{
-		 steps.ClickDefaultIsolated_Steps();  
+	@Then("click DefaultIsoSpaces Area")
+	public void ClickDefault() throws Exception {
+		steps.ClickDefault();
 	}
 	
 	@Then("click Add User button")
@@ -91,6 +76,31 @@ public class OctaneTestSuite{
 		 steps.InputPhoneNum(); 
 	}
 	
+	@Then("input Phone as 12345678 for Ac7")
+	public void PhoneNumAc7() throws Exception{
+		 steps.PhoneNumAc7(); 
+	}
+	
+	@Then("input Phone as 12345678 for Ac6")
+	public void PhoneNumAc6() throws Exception{
+		 steps.PhoneNumAc6(); 
+	}
+	
+	@Then("input Phone as 12345678 for Ac5")
+	public void PhoneNumAc5() throws Exception{
+		 steps.PhoneNumAc5(); 
+	}
+	
+	@Then("input Phone as 12345678 for Ac4")
+	public void PhoneNum() throws Exception{
+		 steps.PhoneNumAc4(); 
+	}
+	
+	@Then("input Phone as 12345678 for AC3")  
+	public void PhoneNumAc3() throws Exception{
+		 steps.PhoneNumAc3(); 
+	}
+	
 	@Then("select Language as Chinese")
 	public void SelectLanguage() throws Exception{
 		 steps.SelectLanguage();  
@@ -104,11 +114,6 @@ public class OctaneTestSuite{
 	@Then("select Role1 as Workspace Admin")
 	public void SelectRole1() throws Exception{
 		 steps.SelectRole1();   
-	}
-	
-	@Then("Make sure the In workspaces displayed Default_workspace as default")
-	public void CheckWorkspacesRole1() throws Exception{
-		steps.CheckWorkspacesRole1();   
 	}
 	
 	@Then("click Add role button")
@@ -126,14 +131,44 @@ public class OctaneTestSuite{
 		steps.ClickAddAnoButn();  
 	}
 	
-	@Then("refresh webpage after clicking button AC1")
-	public void RefreshAc1() throws Exception {
-		steps.RefreshAc1();
+	@Then("check account result")
+	public void CheckPerOneResult() {
+		steps.CheckPerOneResult();
 	}
 	
-	@Then("display result for Account1")
-	public void DisplayAC1Result() throws Exception {
-		steps.DisplayAC1Result();
+	@Then("clear content of LoginName field")
+	public void ClearLoginName() throws Exception {
+		steps.ClearLoginName();
+	}
+	
+	@Then("clear content of FirstName field")
+	public void ClearFirstName() throws Exception {
+		steps.ClearFirstName();
+	}
+	
+	@Then("clear content of LastName field")
+	public void ClearLastName() throws Exception {
+		steps.ClearLastName();
+	}
+	
+	@Then("clear content of Email field")
+	public void ClearEmail() throws Exception {
+		steps.ClearEmail();
+	}
+	
+	@Then("clear content of Phone field")
+	public void ClearPhone() throws Exception {
+		steps.ClearPhone();
+	}
+	
+	@Then("clear content of Pre-Password field")
+	public void ClearPrePwd() throws Exception {
+		steps.ClearPrePwd();
+	}
+	
+	@Then("clear content of Con-Password field")
+	public void ClearConPwd() throws Exception {
+		steps.ClearConPwd();
 	}
 	
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-//
@@ -150,7 +185,7 @@ public class OctaneTestSuite{
 	
 	@Then("input First name as Chs1")
 	public void FirNameAc2() throws Exception {
-		steps.FirNameAc2();
+		steps.FirNameAc();
 	}
 	
 	@Then("input Last name as Chs2")
@@ -163,14 +198,9 @@ public class OctaneTestSuite{
 		steps.EmailAc2();
 	}
 	
-	@Then("refresh webpage after clicking button AC2")
-	public void RefreshAc2() throws Exception {
-		steps.RefreshAc2();
-	}
-	
-	@Then("display result for Account2")
-	public void DisplayAC2Result() throws Exception {
-		steps.DisplayAC2Result();
+	@Then("input Phone as 12345678 for Ac2")
+	public void PhoneNumAc2() throws Exception {
+		steps.PhoneNumAc2();
 	}
 	
 	
@@ -184,7 +214,7 @@ public class OctaneTestSuite{
 	
 	@Then("input First name as Jpn1")
 	public void FirstNameAc3() throws Exception {
-		steps.FirstNameAc3();
+		steps.FirNameAc3();
 	}
 	
 	@Then("input Last name as Jpn2")
@@ -200,16 +230,6 @@ public class OctaneTestSuite{
 	@Then("select Language as Japanese")
 	public void LangForAc3() throws Exception {
 		steps.LangForAc3();
-	}
-	
-	@Then("refresh webpage after clicking button AC3")
-	public void RefreshAc3() throws Exception {
-		steps.RefreshAc3();
-	}
-	
-	@Then("display result for Account3")
-	public void DisplayAC3Result() throws Exception {
-		steps.DisplayAC3Result();
 	}
 	
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-//
@@ -239,16 +259,6 @@ public class OctaneTestSuite{
 		steps.LangForAc4();
 	}
 	
-	@Then("refresh webpage after clicking button AC4")
-	public void RefreshAc4() throws Exception {
-		steps.RefreshAc4();
-	}
-	
-	@Then("display result for Account4")
-	public void DisplayAC4Result() throws Exception {
-		steps.DisplayAC4Result();
-	}
-	
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-//
 	
 	@Then("input Login name as deu@nga")
@@ -274,16 +284,6 @@ public class OctaneTestSuite{
 	@Then("select Language as German")
 	public void LangForAc5() throws Exception {
 		steps.LangForAc5();
-	}
-	
-	@Then("refresh webpage after clicking button AC5")
-	public void RefreshAc5() throws Exception {
-		steps.RefreshAc5();
-	}
-	
-	@Then("display result for Account5")
-	public void DisplayAC5Result() throws Exception {
-		steps.DisplayAC5Result();
 	}
 	
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-//
@@ -313,16 +313,6 @@ public class OctaneTestSuite{
 		steps.LangForAc6();
 	}
 	
-	@Then("refresh webpage after clicking button AC6")
-	public void RefreshAc6() throws Exception {
-		steps.RefreshAc6();
-	}
-	
-	@Then("display result for Account6")
-	public void DisplayAC6Result() throws Exception {
-		steps.DisplayAC6Result();
-	}
-	
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-//	
 	
 	@Then("input Login name as esp@nga")
@@ -349,16 +339,5 @@ public class OctaneTestSuite{
 	public void LangForAc7() throws Exception {
 		steps.LangForAc7();
 	}
-	
-	@Then("refresh webpage after clicking button AC7")
-	public void RefreshAc7() throws Exception {
-		steps.RefreshAc7();
-	}
-	
-	@Then("display result for Account7")
-	public void DisplayAC7Result() throws Exception {
-		steps.DisplayAC7Result();
-	}
-	
 	
 }
