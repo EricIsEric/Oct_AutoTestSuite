@@ -3,6 +3,8 @@ package Thucydides.pages;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.enterprise.inject.Default;
+
 import org.openqa.selenium.WebElement;
 
 import net.thucydides.core.annotations.findby.By;
@@ -42,9 +44,11 @@ public class OctaneTestSuitePage extends PageObject {
 	//以下方法是防止当前不在DefaultIso的Space页面
 	public void ClickDefault() throws Exception {
 		getDriver().manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
-		WebElement DefaultSpaces = find(org.openqa.selenium.By.xpath("//span[@title='Default Isolated Space']"));
+		WebElement DefaultSpaces = find(org.openqa.selenium.By.xpath("//span[@data-aid='500']"));
 		DefaultSpaces.click();
+		System.out.println("【===Default Spaces Switched Successfully===】");
 		Thread.sleep(3000);
+		
 	}
 
 
